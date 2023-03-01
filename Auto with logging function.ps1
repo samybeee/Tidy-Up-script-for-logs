@@ -3,8 +3,8 @@
 function Log-Message {
     param (
         [string]$Message,
-        [string]$LogPath = "C:\Users\SBAdmin\Desktop\logfolder",
-        [string]$LogFilePrefix = "script"
+        [string]$LogPath = "", #
+        [string]$LogFilePrefix = "script" ##enter the name you want your log files to be names. It will also add the time and date
     )
 
     $timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
@@ -20,10 +20,9 @@ Log-Message -Message "Deleting all of the logs from $defaultLogPath not within $
 
 ######################################################
 
-#Currently installed on LSNHSVC01, 02, & 03
 # Set the default log path and number of days
-$defaultLogPath = "C:\Users\SBAdmin\Desktop\logs\LogFiles\W3SVC1"
-$defaultNumDays = 30
+$defaultLogPath = "" #find the path where your files are you want to continusly delete
+$defaultNumDays = #Enter the amount of days you want the script to ignore
 
 # Calculate the date X number of days ago
 $deleteBeforeDate = (Get-Date).AddDays(-$defaultNumDays)
